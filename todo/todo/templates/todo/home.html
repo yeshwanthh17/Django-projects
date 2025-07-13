@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
       align-items: center;
       color: #333;
     }
+
     .container {
       background: white;
       padding: 2rem 3rem;
@@ -25,15 +27,29 @@
       max-width: 400px;
       width: 100%;
     }
+
+    .banner {
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     h1 {
       margin-bottom: 1rem;
       color: #007acc;
     }
+
     p {
       font-size: 1.1rem;
       line-height: 1.5;
       margin-bottom: 2rem;
     }
+
     a.button {
       background-color: #007acc;
       color: white;
@@ -42,7 +58,9 @@
       text-decoration: none;
       font-weight: 600;
       transition: background-color 0.3s ease;
+      display: inline-block;
     }
+
     a.button:hover {
       background-color: #005f99;
     }
@@ -50,6 +68,9 @@
 </head>
 <body>
   <div class="container">
+    <!-- Banner image -->
+    <img src="{% static 'images/home.png' %}" alt="Home Banner" class="banner" />
+
     <h1>Welcome to Your Todo App</h1>
     <p>Stay organized and keep track of your tasks easily.</p>
     <a href="/ho/task/" class="button">View Tasks</a>

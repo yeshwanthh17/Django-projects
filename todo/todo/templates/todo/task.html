@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,28 +13,65 @@
       padding: 2rem;
       color: #333;
     }
+
+    .banner {
+      display: block;
+      margin: 0 auto 2rem;
+      max-width: 360px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
     h1 {
       color: #00529b;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
+
+    .subheading {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
       max-width: 500px;
       margin: 0 auto;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
+
     li {
       padding: 1rem 1.5rem;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #eee;
       font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s ease;
     }
+
+    li:hover {
+      background: #f5faff;
+    }
+
     li:last-child {
       border-bottom: none;
     }
+
+    .status-dot {
+      height: 10px;
+      width: 10px;
+      background-color: #007acc;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 12px;
+    }
+
     a.button {
       display: block;
       max-width: 200px;
@@ -47,19 +85,30 @@
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
+
     a.button:hover {
       background-color: #003f6b;
     }
   </style>
 </head>
 <body>
+
+  <!-- Banner image -->
+  <img src="{% static 'images/taskimag.png' %}" alt="Task Banner" class="banner" />
+
   <h1>Your Tasks</h1>
+  <p class="subheading">Here’s what’s on your list today 📝</p>
+
   <ul>
-    <li>Complete Django project setup</li>
-    <li>Write views and URLs</li>
-    <li>Create beautiful templates</li>
-    <li>Push code to GitHub</li>
+    <li><span class="status-dot"></span>Complete Django project setup</li>
+    <li><span class="status-dot"></span>Write views and URLs</li>
+    <li><span class="status-dot"></span>Create beautiful templates</li>
+    <li><span class="status-dot"></span>Push code to GitHub</li>
   </ul>
+
+  <!-- Buttons -->
   <a href="/ho/home/" class="button">Back to Home</a>
+  <a href="/ho/task/new/" class="button">Add New Task</a>
+
 </body>
 </html>
